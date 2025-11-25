@@ -1,0 +1,100 @@
+# MNIST SVD & PCA Complete Analysis - Requirements
+# تحلیل جامع MNIST با SVD و PCA - نیازمندی‌ها
+#
+# نویسنده: رضا صفری فروشانی (Reza Safari Froushani)
+# ایمیل: safarireza@gmail.com
+# گیتهاب: https://github.com/reza123reza
+#
+# تاریخ: نوامبر 2024
+
+# ═══════════════════════════════════════════════════════════════════════════
+# کتابخانه‌های اصلی / Core Libraries
+# ═══════════════════════════════════════════════════════════════════════════
+
+# محاسبات عددی / Numerical Computing
+numpy>=1.19.0
+
+# ویژوالایزیشن / Visualization
+matplotlib>=3.3.0
+seaborn>=0.11.0
+
+# یادگیری ماشین / Machine Learning
+keras>=2.4.0
+tensorflow>=2.4.0
+
+# ارزیابی و متریک‌ها / Evaluation and Metrics
+scikit-learn>=0.24.0
+
+# ═══════════════════════════════════════════════════════════════════════════
+# کتابخانه‌های اختیاری / Optional Libraries
+# ═══════════════════════════════════════════════════════════════════════════
+
+# برای نوتبوک‌های Jupyter / For Jupyter Notebooks
+# jupyter>=1.0.0
+# ipython>=7.20.0
+# ipywidgets>=7.6.0
+
+# برای تحلیل داده / For Data Analysis
+# pandas>=1.2.0
+
+# برای بهینه‌سازی سرعت / For Speed Optimization
+# numba>=0.53.0
+
+# برای شتاب‌دهی GPU (اختیاری) / For GPU Acceleration (optional)
+# cupy-cuda11x>=9.0.0
+
+# ═══════════════════════════════════════════════════════════════════════════
+# ابزارهای توسعه / Development Tools
+# ═══════════════════════════════════════════════════════════════════════════
+
+# فرمت‌دهی کد / Code Formatting
+# black>=20.8b1
+# flake8>=3.8.4
+
+# تست / Testing
+# pytest>=6.2.0
+# pytest-cov>=2.11.0
+
+# ═══════════════════════════════════════════════════════════════════════════
+# دستورالعمل نصب / Installation Instructions
+# ═══════════════════════════════════════════════════════════════════════════
+
+# نصب همه وابستگی‌ها / Install all dependencies:
+# pip install -r requirements.txt
+
+# نصب با محیط مجازی / Install with virtual environment:
+# python -m venv venv
+# source venv/bin/activate  # لینوکس/مک / Linux/Mac
+# venv\Scripts\activate     # ویندوز / Windows
+# pip install -r requirements.txt
+
+# ═══════════════════════════════════════════════════════════════════════════
+# یادداشت‌های نسخه / Version Notes
+# ═══════════════════════════════════════════════════════════════════════════
+
+# تست شده با / Tested with:
+# - Python 3.7.x
+# - Python 3.8.x
+# - Python 3.9.x
+# - Python 3.10.x
+
+# توصیه / Recommended:
+# Python 3.8 or higher
+
+# ═══════════════════════════════════════════════════════════════════════════
+# نکات مهم / Important Notes
+# ═══════════════════════════════════════════════════════════════════════════
+
+# 1. TensorFlow ممکن است نصب GPU نیاز داشته باشد
+#    TensorFlow may require GPU setup
+#
+# 2. در محیط Colab نیازی به نصب TensorFlow/Keras نیست
+#    In Colab, TensorFlow/Keras is pre-installed
+#
+# 3. برای سرعت بیشتر از NumPy با MKL استفاده کنید
+#    For better performance, use NumPy with MKL
+
+# ═══════════════════════════════════════════════════════════════════════════
+# Copyright © 2024 Reza Safari Froushani. All Rights Reserved.
+# حق نشر © ۲۰۲۴ رضا صفری فروشانی. تمامی حقوق محفوظ است.
+# ═══════════════════════════════════════════════════════════════════════════

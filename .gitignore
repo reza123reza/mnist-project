@@ -1,0 +1,189 @@
+# MNIST SVD Analysis - .gitignore
+# نویسنده: رضا صفری فروشانی
+# Author: Reza Safari Froushani
+
+# ═══════════════════════════════════════════════════════════════════════════
+# Python
+# ═══════════════════════════════════════════════════════════════════════════
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+
+# Virtual environments
+venv/
+ENV/
+env/
+.venv
+
+# ═══════════════════════════════════════════════════════════════════════════
+# IDEs
+# ═══════════════════════════════════════════════════════════════════════════
+
+# PyCharm
+.idea/
+*.iml
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+*.ipynb
+
+# Spyder
+.spyderproject
+.spyproject
+
+# ═══════════════════════════════════════════════════════════════════════════
+# Data & Models
+# ═══════════════════════════════════════════════════════════════════════════
+
+# MNIST data (downloaded automatically)
+*.idx*-ubyte
+*.gz
+.keras/
+
+# Saved models
+*.h5
+*.pkl
+*.joblib
+*.pt
+*.pth
+
+# Large datasets
+data/
+datasets/
+*.csv
+*.npy
+*.npz
+
+# ═══════════════════════════════════════════════════════════════════════════
+# Outputs
+# ═══════════════════════════════════════════════════════════════════════════
+
+# Generated images (keep examples, ignore others)
+*.png
+!example_*.png
+
+# Analysis results
+results/
+output/
+outputs/
+figures/
+
+# Logs
+*.log
+logs/
+
+# ═══════════════════════════════════════════════════════════════════════════
+# OS specific
+# ═══════════════════════════════════════════════════════════════════════════
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Linux
+*~
+.directory
+
+# ═══════════════════════════════════════════════════════════════════════════
+# Documentation
+# ═══════════════════════════════════════════════════════════════════════════
+
+# Sphinx documentation
+docs/_build/
+docs/_static/
+docs/_templates/
+
+# ═══════════════════════════════════════════════════════════════════════════
+# Other
+# ═══════════════════════════════════════════════════════════════════════════
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# Backup files
+*.bak
+*.backup
+
+# Archives
+*.zip
+*.tar
+*.tar.gz
+*.rar
+
+# ═══════════════════════════════════════════════════════════════════════════
+# Keep these files
+# ═══════════════════════════════════════════════════════════════════════════
+
+# Keep README and documentation
+!README.md
+!README_FA.md
+!LICENSE
+
+# Keep example outputs
+!examples/*.png
+
+# Keep requirements
+!requirements.txt
+
+# ═══════════════════════════════════════════════════════════════════════════
+# Copyright © 2024 Reza Safari Froushani
+# حق نشر © ۲۰۲۴ رضا صفری فروشانی
+# ═══════════════════════════════════════════════════════════════════════════

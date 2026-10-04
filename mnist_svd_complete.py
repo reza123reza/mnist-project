@@ -170,13 +170,16 @@ class MNISTAnalyzer:
         self.x_list = []
         self.y_list = []
         
+        # فقط sample_size نمونه‌ی اول (همون نمونه‌ای که PCA/SVD روش انجام می‌شه)
+        # استفاده می‌شه - قبلاً کل ۶۰۰۰۰ تصویر آموزشی استفاده می‌شد و
+        # پارامتر sample_size روی طبقه‌بندی هیچ اثری نداشت.
         for digit in range(10):
             # پیدا کردن همه نمونه‌های این رقم
-            indices = np.where(self.y_train == digit)[0]
+            indices = np.where(self.y_train_sample == digit)[0]
             
-            # استخراج تصاویر مربوطه
-            digit_images = self.x_train_colvector[:, indices]
-            digit_labels = self.y_train[indices]
+            # استخراج تصاویر مربوطه (float برای محاسبات دقیق‌تر)
+            digit_images = self.x_train_sample[:, indices].astype(np.float64)
+            digit_labels = self.y_train_sample[indices]
             
             self.x_list.append(digit_images)
             self.y_list.append(digit_labels)
@@ -242,9 +245,8 @@ class MNISTAnalyzer:
         print(f"      ✓ شکل: {covariance.shape}")
         
         print("\n[2/5] محاسبه eigenvalues و eigenvectors...")
-        self.pca_eigvals, self.pca_eigvecs = np.linalg.eig(covariance)
-        self.pca_eigvals = np.real(self.pca_eigvals)
-        self.pca_eigvecs = np.real(self.pca_eigvecs)
+        # ماتریس کوواریانس متقارنه، پس eigh (سریع‌تر و همیشه حقیقی) به‌جای eig
+        self.pca_eigvals, self.pca_eigvecs = np.linalg.eigh(covariance)
         
         # مرتب‌سازی
         idx = self.pca_eigvals.argsort()[::-1]

@@ -1,5 +1,184 @@
 # 🔢 MNIST Complete Analysis with SVD & PCA
-# تحلیل جامع MNIST با SVD و PCA
+
+**English** · [فارسی](#فارسی)
+
+![Python](https://img.shields.io/badge/Python-3.7+-blue.svg)
+![NumPy](https://img.shields.io/badge/NumPy-Latest-orange.svg)
+![Matplotlib](https://img.shields.io/badge/Matplotlib-Latest-green.svg)
+![Status](https://img.shields.io/badge/Status-Complete-success.svg)
+
+**A complete, educational implementation of MNIST analysis and classification using linear-algebra methods.**
+
+## 🎓 About the project
+
+This project is a **complete educational implementation** of analysing and classifying handwritten MNIST digits with linear-algebra techniques. It is designed to help you understand:
+
+- how **PCA** can simplify complex data
+- how **SVD** reveals the hidden structure of the data
+- how to reach acceptable accuracy **without a neural network**
+- the differences between dimensionality-reduction methods
+
+It is implemented after **Chapter 11** of *Matrix Methods in Data Mining and Pattern Recognition* by Lars Eldén.
+
+## ⚡ Features
+
+- **PCA analysis** — reduce the 784-pixel vectors to 2 dimensions for visualisation, with cumulative-variance analysis
+- **SVD analysis** — extract the main structure of the data
+- **Mean-image classification** — classify a digit by its distance to the mean image of each digit
+- **Top-k SVD classification** — build a subspace for each digit from its first k singular vectors and classify by projection distance
+- **Evaluation and visualisation** — confusion matrices, mean images and "eigendigits"
+
+## 🔄 How it works
+
+```
+1. Load MNIST → 60,000 training + 10,000 test images
+        ↓
+2. Preprocess → flatten to 784-element vectors
+        ↓
+3. PCA → reduce to 2 dimensions for visualisation
+        ↓
+4. SVD → extract the main structure
+        ↓
+5. Split by class → separate each digit (0–9)
+        ↓
+6. Mean images → average of each digit
+        ↓
+7. SVD of each digit → extract the eigendigits
+        ↓
+8. Classify → with mean images or SVD
+        ↓
+9. Evaluate → confusion matrix + accuracy
+```
+
+### Core algorithms
+
+**Mean-image classification**
+```
+for each test image:
+    1. compute the distance to each of the 10 mean images
+    2. choose the nearest
+    3. prediction = the digit with the smallest distance
+```
+
+**SVD classification (top-k)**
+```
+for each digit:
+    1. compute the SVD → U, S, Vt
+    2. keep the first k singular vectors: U_k
+    3. compute P = U_k × U_k^T
+
+for each test image x:
+    1. compute the projection distance for each digit:
+       d_i = ||x - P_i × x||
+    2. prediction = the digit with the smallest d_i
+```
+
+## 📦 Installation
+
+Requires Python 3.7 or higher.
+
+```bash
+git clone https://github.com/reza123reza/mnist-project.git
+cd mnist-project
+pip install -r requirements.txt
+python mnist_svd_complete.py
+```
+
+In Google Colab:
+
+```python
+!pip install -q keras matplotlib seaborn scikit-learn
+!python mnist_svd_complete.py
+```
+
+## 🚀 Usage
+
+### Full run (recommended)
+
+```bash
+python mnist_svd_complete.py
+```
+
+This runs every analysis and saves 6 images:
+1. `01_mnist_samples.png` — MNIST samples
+2. `02_pca_analysis.png` — PCA analysis
+3. `03_svd_analysis.png` — SVD analysis
+4. `04_mean_images.png` — mean images
+5. `05_singular_images.png` — eigendigits
+6. `06_confusion_matrices.png` — confusion matrices
+
+### As a module
+
+```python
+from mnist_svd_complete import MNISTAnalyzer
+
+analyzer = MNISTAnalyzer(sample_size=2000)
+analyzer.load_data()
+analyzer.compute_mean_images(visualize=False)
+accuracy, _ = analyzer.classify_with_mean_images(n_test=500)
+print(f"Accuracy: {accuracy*100:.2f}%")
+```
+
+### Quick demo
+
+```bash
+python quick_start.py
+```
+
+## 📊 Results
+
+With the default settings (2,000 training samples):
+
+| Method | Accuracy | Notes |
+|---|---|---|
+| **Mean image** | ~82–85% | simple but effective |
+| **SVD (k=1)** | ~75–78% | only one singular vector |
+| **SVD (k=2)** | ~80–83% | significant improvement |
+| **SVD (k=3)** | ~83–86% | close to the mean image |
+| **SVD (k=5)** | ~85–88% | best result |
+| **SVD (k=10)** | ~86–89% | minor improvement |
+
+**PCA variance analysis**
+
+| Components | Cumulative variance |
+|---|---|
+| 2 | ~18–25% |
+| 10 | ~45–55% |
+| 50 | ~82–88% |
+| 100 | ~92–95% |
+
+**Most-confused digits** (from the confusion matrix): 4 ↔ 9, 3 ↔ 5, 7 ↔ 1 (especially a straight 7), 8 ↔ 3, 5 ↔ 6.
+
+## 🗂️ Repository contents
+
+- `mnist_svd_complete.py` — the main code (class `MNISTAnalyzer`)
+- `quick_start.py` — quick demo
+- `requirements.txt` — required libraries
+- `LICENSE`
+
+## 🙏 Credits
+
+Libraries: [NumPy](https://numpy.org/), [Matplotlib](https://matplotlib.org/), [Seaborn](https://seaborn.pydata.org/), [Keras](https://keras.io/) (MNIST dataset), [Scikit-learn](https://scikit-learn.org/) (confusion matrix).
+
+References: *Matrix Methods in Data Mining and Pattern Recognition* — Lars Eldén; *The MNIST Database* — Yann LeCun et al.
+
+## 📄 License
+
+Copyright © 2024 Reza Safari Froushani. All rights reserved. This code is free for educational and non-commercial use. Commercial use, sale or distribution requires written permission from the author.
+
+---
+
+Made with ❤️ by Reza Safari Froushani
+
+---
+
+<div dir="rtl">
+
+## فارسی
+
+*(مستندات کامل فارسی؛ بخش‌های انگلیسی کنار عنوان‌ها از نسخهٔ قبلی مانده است.)*
+
+</div>
 
 <div align="center">
 
